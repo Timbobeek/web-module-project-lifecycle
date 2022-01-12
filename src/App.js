@@ -1,7 +1,25 @@
 import React from 'react';
 
 class App extends React.Component {
+  state = {
+    followersImages: [
+      "https://avatars.githubusercontent.com/u/68671029?v=4",
+      "https://avatars.githubusercontent.com/u/68671029?v=4",
+      "https://avatars.githubusercontent.com/u/68671029?v=4",
+      "https://avatars.githubusercontent.com/u/68671029?v=4"
+    ],
+    followersNames: [
+      'User One',
+      'User Two',
+      'User Three',
+      'User Four'
+    ],
+    followersUsernames: [],
+    followersRepos: [],
+    followersFollowers: []
+  }
   render() {
+    console.log(this.state.followersNames);
     return(<div>
       <h1>Github Users Info</h1>
       <form>
@@ -20,14 +38,16 @@ class App extends React.Component {
 
       <div>
         <h2>Followers:</h2>
-        <img width = '10%' src="https://avatars.githubusercontent.com/u/68671029?v=4"/>
-        <p>user1</p>        
-        <img width = '10%' src="https://avatars.githubusercontent.com/u/68671029?v=4"/>
-        <p>user2</p>
-        <img width = '10%' src="https://avatars.githubusercontent.com/u/68671029?v=4"/>
-        <p>user3</p>
-        <img width = '10%' src="https://avatars.githubusercontent.com/u/68671029?v=4"/>
-        <p>user4</p>
+        {
+          this.state.followersImages.map(image => {
+            return <img key={Math.random()} width='10%' src={image}/>
+          })
+        }
+        {
+          this.state.followersNames.map(name => {
+            return name
+          })
+        }
       </div>
     </div>);
   }
